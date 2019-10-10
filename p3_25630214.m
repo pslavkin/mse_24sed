@@ -40,7 +40,8 @@ r=r';                            %me conviene en forma de fila,queda mas claro e
 %poco la codificacino pero no se gana demasiado en procesamiento asi que se decide dejarla 
 %tambien se podria evitar el r.^2 si no se calcula la raiz en la oeracion anterior..
 
-b=1/2*(distance(:,ref).^2-distance.^2+r.^2);
+b=1/2*(repmat(distance(:,ref).^2,1,columns(distance))-distance.^2+repmat(r.^2,rows(distance),1));
+
 
 %genero la matriz A como
 A=data.AP-data.AP(ref,:);  %aca tambien quedara la entrada A(ref,:) todo cero y por eso cuando
